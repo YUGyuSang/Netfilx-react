@@ -6,6 +6,7 @@ import Homepage from './pages/Homepage/Homepage';
 import Moviepage from './pages/Movies/Moviepage';
 import Moviedetailpage from './pages/MovieDetail/Moviedetailpage';
 import NotFoundpage from './pages/NotFoundpage/NotFoundpage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // 홈페이지 /
