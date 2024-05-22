@@ -23,3 +23,10 @@
 .banner-text-area > *{
     z-index: 2;
 }
+.banner-title{
+    font-weight: 800;
+    text-shadow: 2px 2px 2px gray;
+}
+.banner-overview{
+    text-shadow: 2px 2px 2px gray;
+}

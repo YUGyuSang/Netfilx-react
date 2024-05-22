@@ -1,0 +1,12 @@
+.carousel-container{
+    overflow: hidden;
+    height: 440px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.Maintitle{
+    color: white !important;
+    text-shadow: 2px 2px 2px gray;
+    margin-left: 30px;
+}
