@@ -26,7 +26,10 @@
 .banner-title{
     font-weight: 800;
     text-shadow: 2px 2px 2px gray;
+    width: 450px;
+    font-size: 2em;
 }
 .banner-overview{
     text-shadow: 2px 2px 2px gray;
+    width: 450px;
 }

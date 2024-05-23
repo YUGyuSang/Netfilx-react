@@ -1,8 +1,11 @@
 import React from 'react'
 import { Badge } from 'react-bootstrap'
 import './MovieCard.style.css'
-
+import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
 const MovieCard = ({movie}) => {
+
+  const {data:genreData} = useMovieGenreQuery() // data: 이름을 다시 재정의 한다는 의미이다.
+  console.log('gg',genreData);
   return (
     <div className='movie-card' style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}`+")"}}>
       
