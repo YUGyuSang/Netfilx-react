@@ -24,7 +24,7 @@ const MovieCard = ({movie}) => {
         <div className='vpa'>
             <div>👍평점: {movie.vote_average}</div>
             <div>인기도: {movie.popularity}</div>
-            <div>나이: {movie.adult?'애기들 보면 안돼!':'전체이용가'}</div>
+            <div>나이: {movie.adult?'애기들 보면 안돼!':'전체이용가?'}</div>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import { Alert, Col, Container, Row, Spinner } from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
+import './Moviepage.style.css';
 
 // nav바에 클릭해서 온경우 => pupㅕlarMovie 보여준다.
 // 키워드를 입력해서 온경우 => 키워드와 관련된 영화들을 보여준다.
@@ -15,6 +16,7 @@ const Moviepage = () => {
   const[query,setQuery] = useSearchParams();
   const[page,setPage] = useState(1);
   const keyword = query.get("q");
+  
 
   const {data,isLoading,isError,error} = useSearchMovieQuery({keyword,page});
   const handlePageClick=({selected})=>{
@@ -49,12 +51,13 @@ const Moviepage = () => {
           ))}
           </Row>
       <ReactPaginate
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         marginPagesDisplayed={2}
-        pageCount={data?.total_pages}//전체페이지가 몇개인지
-        previousLabel="< previous"
+        // pageCount={data?.total_pages}//전체페이지가 몇개인지
+        pageCount={12}
+        previousLabel="<"
         pageClassName="page-item"
         pageLinkClassName="page-link"
         previousClassName="page-item"
@@ -68,6 +71,7 @@ const Moviepage = () => {
         activeClassName="active"
         renderOnZeroPageCount={null}
         forcePage={page - 1}
+        className='page-nav'
       />
         </Col>
         

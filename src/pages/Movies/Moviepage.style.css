@@ -1,0 +1,21 @@
+.page-nav{
+    color: white;
+    display: flex;
+    padding: 10px;
+    list-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px gray;
+}
+
+.page-nav a{
+    margin: 20px;
+}
+
+.page-nav a:hover{
+    color: red;
+}
+
+.page-item.active .page-link {
+    color: red;
+}
