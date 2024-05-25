@@ -1,10 +1,17 @@
-import React from 'react'
+import {React} from 'react'
 import { Badge } from 'react-bootstrap'
 import './MovieCard.style.css'
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
+import { Outlet, useNavigate } from 'react-router-dom';
+import Moviedetailpage from '../../pages/MovieDetail/Moviedetailpage';
 const MovieCard = ({movie}) => {
 
   const {data:genreData} = useMovieGenreQuery() // data: 이름을 다시 재정의 한다는 의미이다.
+  const navigate = useNavigate();
+
+  const movieCardTarget = () =>{
+    navigate(`/movies/${movie.id}`);
+  }
 
   const showGenre = (genreIdList)=>{
     if(!genreData)return []
@@ -16,7 +23,7 @@ const MovieCard = ({movie}) => {
     return genreNameList
   }
   return (
-    <div className='movie-card' style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}`+")"}}>
+    <div onClick={movieCardTarget} className='movie-card' style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}`+")"}}>
       
       <div className='overlay'>
         <h1 className='movietitle'>{movie.title}</h1>
