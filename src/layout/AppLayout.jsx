@@ -22,7 +22,7 @@ const AppLayout = () => {
     <div>
     <Navbar expand="lg" style={{ backgroundColor: '#000' }} className="navbar-dark">
       <Container fluid>
-        <Navbar.Brand href="#"><img src={NetfilxImg} alt="Logo" style={{width:'100px', height:'50px'}} /></Navbar.Brand>
+        <Navbar.Brand href="/"><img src={NetfilxImg} alt="Logo" style={{width:'100px', height:'50px'}} /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

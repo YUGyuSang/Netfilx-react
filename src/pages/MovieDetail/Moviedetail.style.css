@@ -1,11 +1,84 @@
 .container{
     display: flex;
-    justify-content:space-around;
+    justify-content:center;
     margin-top: 50px;
-    padding: 0 30px;
 }
 
 .movie-card:hover{
     transform: none;
     z-index: 0;
+}
+
+.cm{
+    margin-left: 70px;
+    width: 500px;
+}
+
+.title{
+    color: white;
+}
+
+.detailul{
+    list-style: none;
+    display: flex;
+    margin-top: 30px;
+    padding: 0;
+}
+
+.detailli{
+    color: wheat;
+    margin-left: 20px;
+}
+
+.detailli:first-child{
+    margin-left: 0px;
+} 
+
+.suc{
+    width: 100px;
+    height: 20px;
+}
+
+/* .container-2{
+    
+} */
+
+.container-2{
+    text-align: center;
+    margin-top: 150px;
+    color: white;
+}
+
+.container-2 hr {
+    width: 800px; /* 가로 너비 설정 */
+    margin: 0 auto; /* 좌우 여백을 auto로 설정하여 가운데 정렬 */
+}
+
+.review-box {
+    text-align: left;
+    margin: 0 auto;
+    display: inline-block; /* flex 컨테이너로 설정하여 자식 요소를 정렬 */
+    vertical-align: top; /* 왼쪽으로 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    width: 800px;
+    height: 100%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: red;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.review-box > div {
+    margin-left: 20px; /* 요소 간의 왼쪽 여백 설정 */
+}
+
+.btns{
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
