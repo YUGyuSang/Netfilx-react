@@ -1,5 +1,11 @@
 .container{
     display: flex;
-    justify-content:center;
+    justify-content:space-around;
     margin-top: 50px;
+    padding: 0 30px;
+}
+
+.movie-card:hover{
+    transform: none;
+    z-index: 0;
 }
