@@ -21,7 +21,7 @@ const MovieCard = ({movie}) => {
     })
 
     return genreNameList
-  }
+  };
   return (
     <div onClick={movieCardTarget} className='movie-card' style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}`+")"}}>
       

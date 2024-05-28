@@ -49,7 +49,7 @@ const Moviepage = () => {
             <MovieCard movie={movie}/>
           </Col>
           ))}
-          </Row>
+        </Row>
       <ReactPaginate
         nextLabel=">"
         onPageChange={handlePageClick}

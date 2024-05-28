@@ -1,8 +1,10 @@
 import React from 'react'
 import './MovieRecommendation.style.css'
 import { useRecommendation } from '../../hooks/useRecommendation'
-import { Alert } from "react-bootstrap";
+import { Alert, Container, Row, Col } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
+import MovieCard from '../../common/MovieCard/MovieCard';
+import './MovieRecommendation.style.css'
 
 const MovieRecommendation = () => {
     const { id } = useParams();
@@ -11,22 +13,33 @@ const MovieRecommendation = () => {
         isLoading: isRecommendationLoading,
         isError: isRecommendationError,
         error: RecommendationError,
-  } = useRecommendation(id);
+    } = useRecommendation(id);
 
-  if(isRecommendationLoading){
-    <h1>Loading...</h1>
-  }
-  if(isRecommendationError){
-    return <Alert variant="danger">{RecommendationError.message}</Alert>;
-  }
+    if (isRecommendationLoading) {
+        return <h1>Loading...</h1>; // JSX를 반환해야 합니다.
+    }
+    if (isRecommendationError) {
+        return <Alert variant="danger">{RecommendationError.message}</Alert>; // JSX를 반환해야 합니다.
+    }
+    const recommendation = RecommendationData.data.results
+    console.log('추천', RecommendationData);
 
-  console.log('추천',RecommendationData);
-
-  return (
-    <div>
-      추천영화
-    </div>
-  )
+    return (
+        // <div>
+        //     <div className='movie-car' style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w600_and_h900_bestv2/${recommendation[0].poster_path}`+")"}}>
+        //         {console.log('추천1',recommendation[0].poster_path)}
+        //     </div>
+        // </div>
+        <Container>
+                <Row>
+                    {recommendation.map((movie, index) => (
+                        <Col key={index} lg={4} xs={12}>
+                            <MovieCard movie={movie} />
+                        </Col>
+                    ))}
+                </Row>
+        </Container>
+    );
 }
 
-export default MovieRecommendation
+export default MovieRecommendation;

@@ -138,9 +138,9 @@ const Moviedetailpage = () => {
       </div>
 
       <div>
-        <MovieRecommendation/> {/* 추천영화 */}
+        <MovieRecommendation /> {/* 추천영화 */}
       </div>
-      
+
     </div>
   );
 };
