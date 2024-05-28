@@ -31,9 +31,9 @@ const MovieRecommendation = () => {
         //     </div>
         // </div>
         <Container>
-                <Row>
+                <Row style={{width:'800px'}}>
                     {recommendation.map((movie, index) => (
-                        <Col key={index} lg={4} xs={12}>
+                        <Col key={index} lg={4} xs={12} className='re-img'>
                             <MovieCard movie={movie} />
                         </Col>
                     ))}

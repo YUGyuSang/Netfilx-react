@@ -44,10 +44,12 @@
 } */
 
 .container-2{
+    margin: 0 auto;
+    width: 800px;
     text-align: center;
     margin-top: 150px;
     color: white;
-    display: none;
+    /* display: none; */
 }
 
 .container-2 hr {
@@ -82,4 +84,8 @@
     font-size: 12px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.togle{
+    display: flex;
 }

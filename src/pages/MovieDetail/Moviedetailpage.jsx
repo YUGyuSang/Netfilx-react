@@ -9,8 +9,12 @@ import { useReview } from "../../hooks/useReview";
 import MovieRecommendation from "./MovieRecommendation";
 
 const Moviedetailpage = () => {
+  const [rr,setRr] = useState(true);
   const [expandedReviews, setExpandedReviews] = useState([]);
   const { id } = useParams();
+  const Rrtrueflase = () =>{
+    setRr(!rr);
+  }
   const {
     data: ReviewData,
     isLoading: isReviewLoading,
@@ -118,29 +122,32 @@ const Moviedetailpage = () => {
       </div>
 
       <div className="container-2">
-        <h2>Review</h2>
+        {/* <h2 onClick={Rrtrueflase}>{rr ?'Review':'Recommendation'}</h2> */}
+        <div className="togle">
+        <h2 onClick={() => setRr(true)} style={{ color: rr ? 'red' : 'gray',cursor:'pointer' }}>Review </h2>
+        <h3 style={{padding:'5px'}}> or </h3>
+        <h2 onClick={() => setRr(false)} style={{ color: !rr ? 'red' : 'gray',cursor:'pointer' }}> Recommendation</h2>
+        </div>
         <hr />
-        {reviews.map((review, index) => (
-          <div key={index} className="review-box">
-            <div>⭐작성자⭐: {review.author}</div>
-            <div>
-              {expandedReviews.includes(index)
-                ? review.content
-                : `${review.content.slice(0, 400)}...`}
+        {rr ?
+          reviews.map((review, index) => (
+            <div key={index} className="review-box">
+              <div>⭐작성자⭐: {review.author}</div>
               <div>
-                <button className="btns" onClick={() => toggleExpand(index)}>
-                  {expandedReviews.includes(index) ? "접기" : "펼치기"}
-                </button>
+                {expandedReviews.includes(index)
+                  ? review.content
+                  : `${review.content.slice(0, 400)}...`}
+                <div>
+                  <button className="btns" onClick={() => toggleExpand(index)}>
+                    {expandedReviews.includes(index) ? "접기" : "펼치기"}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <MovieRecommendation /> {/* 추천영화 */}
-      </div>
-
+          ))
+          :
+          <MovieRecommendation />}     
+           </div>
     </div>
   );
 };
