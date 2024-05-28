@@ -4,10 +4,10 @@
     margin-top: 50px;
 }
 
-.movie-card:hover{
+/* .movie-card1:hover{
     transform: none;
     z-index: 0;
-}
+} */
 
 .cm{
     margin-left: 70px;
@@ -47,6 +47,7 @@
     text-align: center;
     margin-top: 150px;
     color: white;
+    display: none; /*작업 할동안 만*/
 }
 
 .container-2 hr {
