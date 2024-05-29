@@ -47,7 +47,7 @@
     margin: 0 auto;
     width: 800px;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 20px;
     color: white;
     /* display: none; */
 }
@@ -89,3 +89,11 @@
 .togle{
     display: flex;
 }
+
+.container-1{
+    width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+

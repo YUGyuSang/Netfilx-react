@@ -7,11 +7,13 @@ import { Alert } from 'react-bootstrap';
 const Movieyoutube = () => {
     const { id } = useParams();
     const opts = {
-      height: '300',
-      width: '400',
+      height: '450',
+      width: '800',
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
         autoplay: 1,
+        modestbranding: 1,
+        rel: 0,
     }
 }
 
@@ -37,7 +39,6 @@ console.log('youtube',YouTubeData);
   return (
     <div>
       <YouTube videoId= {youtube} opts={opts} onEnd={(e)=>{e.target.stopVideo(0);}} onReady={onReady}  />;
-      hi
     </div>
   )
 }

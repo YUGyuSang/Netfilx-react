@@ -85,7 +85,6 @@ const Moviedetailpage = () => {
               transform: 'none',
             }}
           />
-          <Movieyoutube />
         </div>
         <div className="cm">
           {genreNames.map((name, index) => (
@@ -120,6 +119,12 @@ const Moviedetailpage = () => {
             </Badge>{" "}
             {movie.runtime}분
           </div>
+        </div>
+      </div>
+
+      <div className="container-1">
+        <div className='youtuVideo'>
+          <Movieyoutube />
         </div>
       </div>
 
