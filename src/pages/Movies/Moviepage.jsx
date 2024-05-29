@@ -8,6 +8,7 @@ import './Moviepage.style.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useEffect } from 'react';
 
 
 // nav바에 클릭해서 온경우 => pupㅕlarMovie 보여준다.
@@ -34,8 +35,18 @@ const sortMovies = (movies, sort) => {
 const Moviepage = () => {
   const[query,setQuery] = useSearchParams();
   const[page,setPage] = useState(1);
-  const [sort, setSort] = useState('popularity.desc'); // 기본 정렬 옵션
+  // const [sort, setSort] = useState('popularity.desc'); 기본 정렬 옵션
+  const [sort, setSort] = useState(() => {
+    // 이전에 설정된 정렬 상태가 로컬 스토리지에 저장되어 있는지 확인하고 없으면 기본값으로 설정합니다.
+    const storedSort = localStorage.getItem('movieSort');
+    return storedSort ? storedSort : 'popularity';
+  });
   const keyword = query.get("q");
+
+  useEffect(() => {
+    // 페이지가 변경될 때마다 로컬 스토리지에 현재 정렬 상태를 저장합니다.
+    localStorage.setItem('movieSort', sort);
+  }, [sort]);
   
   const handleSortChange = (sortOption) => {
     setSort(sortOption);
@@ -63,6 +74,7 @@ const Moviepage = () => {
   }
 
   const sortedMovies = sortMovies(data?.results, sort);
+
   return (
     <Container>
       <Row>
@@ -79,9 +91,9 @@ const Moviepage = () => {
               menuVariant="dark"
               onSelect={handleSortChange}
             >
-                    <NavDropdown.Item eventKey="popularity">인기 순</NavDropdown.Item>
-                    <NavDropdown.Item eventKey="release_date">날짜 순</NavDropdown.Item>
-                    <NavDropdown.Item eventKey="vote_average">별점 순</NavDropdown.Item>
+                    <NavDropdown.Item eventKey="popularity">인기순</NavDropdown.Item>
+                    <NavDropdown.Item eventKey="release_date">개봉일순</NavDropdown.Item>
+                    <NavDropdown.Item eventKey="vote_average">별점순</NavDropdown.Item>
             <NavDropdown.Divider />
             </NavDropdown>
           </Nav>
