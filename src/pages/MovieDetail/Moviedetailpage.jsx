@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
 import { useReview } from "../../hooks/useReview";
 import MovieRecommendation from "./MovieRecommendation";
+import Movieyoutube from "./Movieyoutube";
 
 const Moviedetailpage = () => {
   const [rr,setRr] = useState(true);
@@ -84,6 +85,7 @@ const Moviedetailpage = () => {
               transform: 'none',
             }}
           />
+          <Movieyoutube />
         </div>
         <div className="cm">
           {genreNames.map((name, index) => (
