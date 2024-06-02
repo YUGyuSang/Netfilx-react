@@ -9,6 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useEffect } from 'react';
+import Genres from './Genres';
 
 
 // nav바에 클릭해서 온경우 => pupㅕlarMovie 보여준다.
@@ -100,6 +101,10 @@ const Moviepage = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <div>
+      <h3>Genres</h3>
+      <Genres />
+    </div>
     </Col>
         
         <Col lg={8} xs={12}>
