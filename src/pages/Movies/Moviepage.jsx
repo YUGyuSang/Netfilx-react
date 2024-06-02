@@ -33,6 +33,11 @@ const sortMovies = (movies, sort) => {
   }
 };
 
+const filterMoviesByGenre = (movies, selectedGenre) => {
+  if (!selectedGenre || !movies) return movies;
+  return movies.filter(movie => movie.genre_ids.includes(selectedGenre));
+};
+
 const Moviepage = () => {
   const[query,setQuery] = useSearchParams();
   const[page,setPage] = useState(1);
@@ -42,6 +47,7 @@ const Moviepage = () => {
     const storedSort = localStorage.getItem('movieSort');
     return storedSort ? storedSort : 'popularity';
   });
+  const [selectedGenre, setSelectedGenre] = useState(null);
   const keyword = query.get("q");
 
   useEffect(() => {
@@ -52,6 +58,11 @@ const Moviepage = () => {
   const handleSortChange = (sortOption) => {
     setSort(sortOption);
     setPage(1); // 정렬 옵션이 변경될 때 페이지를 1로 리셋
+  };
+
+  const handleGenreChange = (genreId) => {
+    setSelectedGenre(genreId);
+    setPage(1);
   };
 
   const {data,isLoading,isError,error} = useSearchMovieQuery({keyword,page});
@@ -74,7 +85,8 @@ const Moviepage = () => {
     return <Alert variant='danger'>{error.message}</Alert>
   }
 
-  const sortedMovies = sortMovies(data?.results, sort);
+  let movies = sortMovies(data?.results, sort);
+  movies = filterMoviesByGenre(movies, selectedGenre);
 
   return (
     <Container>
@@ -101,15 +113,15 @@ const Moviepage = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <div>
+    <div className='Genres'>
       <h3>Genres</h3>
-      <Genres />
+      <Genres onGenreChange={handleGenreChange}/>
     </div>
     </Col>
         
         <Col lg={8} xs={12}>
         <Row>
-          {sortedMovies.map((movie,index)=> (
+          {movies.map((movie,index)=> (
           <Col key={index} lg={4} xs={12}>
             <MovieCard movie={movie}/>
           </Col>

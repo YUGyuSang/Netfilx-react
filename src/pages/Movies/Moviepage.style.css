@@ -19,3 +19,12 @@
 .page-item.active .page-link {
     color: red;
 }
+
+.Genres {
+    margin-top: 100px;
+    width: 290px;
+}
+
+.Genres h3{
+    color: white;
+}

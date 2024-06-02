@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Alert } from "react-bootstrap";
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 
-const Genres = () => {
+const Genres = ({onGenreChange}) => {
 
     const {
         data: GenresData,
@@ -22,7 +22,7 @@ const Genres = () => {
 
   return (
     <div>
-      {GenresData.map((name,index)=>(<Button style={{margin:'5px'}} key={index} variant="danger">{name.name}</Button>))}
+      {GenresData.map((name,index)=>(<Button style={{margin:'5px'}} key={index} variant="danger" onClick={() => onGenreChange(name.id)}>{name.name}</Button>))}
     </div>
   )
 }
