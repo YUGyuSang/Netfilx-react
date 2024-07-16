@@ -16,13 +16,12 @@ const MovieRecommendation = () => {
     } = useRecommendation(id);
 
     if (isRecommendationLoading) {
-        return <h1>Loading...</h1>; // JSX를 반환해야 합니다.
+        return <h1>Loading...</h1>; 
     }
     if (isRecommendationError) {
-        return <Alert variant="danger">{RecommendationError.message}</Alert>; // JSX를 반환해야 합니다.
+        return <Alert variant="danger">{RecommendationError.message}</Alert>; 
     }
     const recommendation = RecommendationData.data.results
-    console.log('추천', RecommendationData);
 
     return (
         // <div>

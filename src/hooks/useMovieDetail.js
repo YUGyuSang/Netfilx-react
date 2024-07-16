@@ -1,3 +1,4 @@
+//movie 디테일
 import { useQuery } from "@tanstack/react-query";
 import api from "../utils/api";
 

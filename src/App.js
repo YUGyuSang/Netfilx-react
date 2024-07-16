@@ -17,10 +17,10 @@ function App() {
     <Routes>
        <Route path='/' element={<AppLayout/>}>
             <Route index element={<Homepage/>}/>
-            <Route path='movies'>
-                <Route path=':id' element={<Moviedetailpage/>} />
-                <Route index element={<Moviepage/>} />
-            </Route>
+            
+                <Route path='movies/:id' element={<Moviedetailpage/>} />
+                <Route path='movies' element={<Moviepage/>} />
+           
 
             <Route path='*' element={<NotFoundpage/>}/>
             {/* <Route path='/movie' element={<Moviepage/>}/>
